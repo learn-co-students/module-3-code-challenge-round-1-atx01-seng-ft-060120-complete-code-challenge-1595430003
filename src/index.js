@@ -35,7 +35,6 @@ function picInfo(pic, imageId){
       const updatedLikes = likes.innerText = `
       ${pic.like_count}
       `
-      console.log(updatedLikes)
       increaseLikes(imageId, updatedLikes)
     })
   pic.comments.forEach(comment => makeListOfComments(comment))
@@ -51,18 +50,16 @@ function makeListOfComments(comment){
 }
 
 function increaseLikes(imageId, updatedLikes){
-  const likeObject = {
-    "like-count": updatedLikes
-  }
-  fetch(`https://randopic.herokuapp.com/images/${imageId}`, {
-    method: "PATCH",
+  fetch(`https://randopic.herokuapp.com/likes/`, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json"
     },
-    body: JSON.stringify(
-      likeObject
-    )
+    body: JSON.stringify({
+      "like-count": updatedLikes,
+      "image_id": imageId
+    })
   })
   .then(response => response.json())
   .then(object => console.log(object))
