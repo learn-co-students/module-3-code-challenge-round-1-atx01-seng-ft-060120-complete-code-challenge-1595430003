@@ -1,3 +1,4 @@
+√√√√√√√√√√√√√√√√√√√√√√√√√√√
 # JavaScript Code Challenge
 
 ## Allowed Resources
