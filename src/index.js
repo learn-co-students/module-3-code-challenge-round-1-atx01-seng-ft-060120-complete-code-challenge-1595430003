@@ -39,7 +39,7 @@ function postImg(data){
 
 function addLike(data){
   fetch (likeURL, {
-    method: "PATCH",
+    method: "POST",
     headers: {
       "Accept": 'application/json',
       "Content-Type": 'application/json'
